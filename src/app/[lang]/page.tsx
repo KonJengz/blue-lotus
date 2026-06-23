@@ -36,75 +36,78 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   };
 
   const previewServices = services.slice(0, 4);
+  const treatmentRoomImage = "/images/blue-lotus-treatment-room.jpg";
+  const footMassageImage = "/images/blue-lotus-foot-massage.jpg";
+  const imageAlt = {
+    th: {
+      treatmentRoom: "ห้องนวดบลูโลตัสพร้อมเตียงนวดและม่านผ้าไทย",
+      footMassage: "บรรยากาศบริการนวดเท้าที่บลูโลตัส",
+    },
+    en: {
+      treatmentRoom: "Blue Lotus treatment room with Thai massage beds and curtains",
+      footMassage: "Foot massage treatment atmosphere at Blue Lotus",
+    },
+    zh: {
+      treatmentRoom: "Blue Lotus 按摩房，设有泰式按摩床与布帘",
+      footMassage: "Blue Lotus 足部按摩服务氛围",
+    },
+  }[lang];
+  const servicePreviewImages = {
+    thai: treatmentRoomImage,
+    foot: footMassageImage,
+    headNeckShoulder: footMassageImage,
+    herbalCompress: treatmentRoomImage,
+    neckShoulderHot: treatmentRoomImage,
+    footNeckShoulder: footMassageImage,
+    oilHead: footMassageImage,
+  } satisfies Record<(typeof services)[number]["id"], string>;
 
   return (
     <>
       {/* ---------- Hero ---------- */}
-      <section className="relative overflow-hidden border-b border-border">
-        {/* Real photo background with overlay */}
-        <div className="absolute inset-0 -z-10">
-          <Image
-            src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2000&auto=format&fit=crop"
-            alt="Thai Massage Spa Background"
-            fill
-            className="object-cover opacity-20 dark:opacity-10"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-surface/90 via-surface/80 to-surface/90" />
-        </div>
-        <div
-          aria-hidden="true"
-          className="absolute -right-24 -top-24 -z-10 h-96 w-96 rounded-full bg-accent/20 blur-3xl animate-pulse"
+      <section className="relative h-[calc(86svh-4rem)] min-h-[480px] max-h-[760px] overflow-hidden border-b border-border bg-foreground text-white">
+        <Image
+          src={treatmentRoomImage}
+          alt={imageAlt.treatmentRoom}
+          fill
+          className="object-cover object-center"
+          loading="eager"
+          fetchPriority="high"
+          sizes="100vw"
         />
-        <div
-          aria-hidden="true"
-          className="absolute -right-24 -top-24 -z-10 h-96 w-96 rounded-full bg-accent/10 blur-3xl"
-        />
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:py-28">
-          <div className="space-y-6">
-            <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium uppercase tracking-wide text-muted">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/95 to-transparent" />
+
+        <div className="relative z-10 mx-auto flex h-full max-w-6xl items-end px-4 py-10 sm:px-6 sm:py-12 lg:items-center lg:py-16">
+          <div className="max-w-2xl space-y-5">
+            <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase text-accent">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               {dict.hero.eyebrow}
             </p>
-            <h1 className="text-balance text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <h1 className="text-balance text-4xl font-semibold leading-tight text-white drop-shadow-sm sm:text-5xl lg:text-6xl animate-in fade-in slide-in-from-bottom-4 duration-700">
               {dict.hero.title}
             </h1>
-            <p className="max-w-xl text-pretty text-base leading-relaxed text-muted sm:text-lg animate-in fade-in slide-in-from-bottom-6 duration-1000">
+            <p className="max-w-xl text-pretty text-base leading-relaxed text-white/90 sm:text-lg animate-in fade-in slide-in-from-bottom-6 duration-1000">
               {dict.hero.subtitle}
             </p>
             <div className="flex flex-wrap items-center gap-3 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-150">
               <Link
                 href={`${base}/contact/`}
-                className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:opacity-90 hover:scale-105 shadow-md"
+                className="inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground shadow-md transition-all duration-300 hover:scale-[1.02] hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 {dict.hero.ctaPrimary}
               </Link>
               <Link
                 href={`${base}/services/`}
-                className="inline-flex items-center justify-center rounded-lg border border-border bg-surface px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-surface-muted hover:border-accent"
+                className="inline-flex items-center justify-center rounded-lg border border-white/35 bg-black/20 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/70 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 {dict.hero.ctaSecondary} <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </div>
-            <p className="flex items-center gap-2 text-sm text-muted">
-              <span className="h-2 w-2 rounded-full bg-green-500" />
+            <p className="flex items-center gap-2 text-sm text-white/85">
+              <span className="h-2 w-2 rounded-full bg-accent" />
               {dict.hero.openDaily}
             </p>
-          </div>
-
-          {/* Decorative brand panel (placeholder for hero imagery) */}
-          <div className="relative hidden lg:block">
-            <div className="aspect-[4/5] w-full rounded-2xl border border-border bg-gradient-to-b from-primary/95 to-primary p-10 text-primary-foreground shadow-xl">
-              <div className="flex h-full flex-col items-center justify-center gap-6 text-center">
-                <LotusMark className="h-24 w-24 text-accent" />
-                <p className="text-2xl font-semibold tracking-[0.2em]">
-                  BLUE LOTUS
-                </p>
-                <p className="text-xs tracking-[0.3em] opacity-80">
-                  THAI THERAPEUTIC MASSAGE
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -136,7 +139,16 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
 
       {/* ---------- Intro / values ---------- */}
       <section className="border-y border-border bg-surface-muted">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:items-center">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div className="relative min-h-[320px] overflow-hidden rounded-lg border border-border bg-surface shadow-sm sm:min-h-[420px]">
+            <Image
+              src={footMassageImage}
+              alt={imageAlt.footMassage}
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+          </div>
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold text-foreground sm:text-3xl">
               {dict.intro.heading}
@@ -188,10 +200,11 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
             >
               <div className="mb-2 overflow-hidden rounded-md relative h-32 w-full">
                  <Image
-                    src={`https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=800&auto=format&fit=crop&text=${svc.id}`}
+                    src={servicePreviewImages[svc.id]}
                     alt={dict.services.names[svc.id]}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                  />
               </div>
               <LotusMark className="h-8 w-8 text-accent transition-transform duration-300 group-hover:rotate-12" />
