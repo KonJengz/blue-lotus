@@ -1,0 +1,62 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "bookNow": "Book Now",
+    "contactUs": "Contact Us",
+    "learnMore": "Learn More",
+    "backToHome": "Back to Home"
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "location": "Location & Hours",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Experience True Relaxation",
+    "subtitle": "Authentic Thai massage for your health and well-being. Restore your body and mind in our serene and private atmosphere.",
+    "cta": "View Our Services"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Choose the perfect package for your ultimate relaxation.",
+    "items": {
+      "thaiMassage": {
+        "title": "Traditional Thai Massage",
+        "desc": "Relieve muscle tension and improve blood circulation with ancient techniques.",
+        "price": "From 500 THB / hr",
+        "icon": "Flower2"
+      },
+      "oilMassage": {
+        "title": "Aroma Oil Massage",
+        "desc": "Relax with natural essential oils to promote deep sleep and relaxation.",
+        "price": "From 800 THB / hr",
+        "icon": "Droplets"
+      },
+      "footMassage": {
+        "title": "Foot Reflexology",
+        "desc": "Stimulate internal organs and relieve fatigue from long walks or standing.",
+        "price": "From 400 THB / hr",
+        "icon": "Footprints"
+      }
+    }
+  },
+  "location": {
+    "title": "Location & Hours",
+    "address": "123 Sukhumvit Road, Khlong Toei Nuea, Watthana, Bangkok 10110",
+    "hours": "Open daily: 10:00 AM - 10:00 PM",
+    "phone": "02-XXX-XXXX",
+    "getDirections": "Get Directions"
+  },
+  "safety": {
+    "title": "Important Safety Information",
+    "desc": "For your safety, please inform our staff if you have any underlying health conditions, are pregnant, or have recently had surgery before receiving a massage."
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "desc": "Sorry, we couldn't find the page you're looking for. It might have been removed or you entered the wrong URL."
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  }
+}

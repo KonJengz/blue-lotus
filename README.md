@@ -30,7 +30,9 @@ HTML/CSS/JS into `out/`, which can be hosted on any static host.
 ```
 src/
   app/
-    [lang]/                # locale root layout (renders <html lang>) + pages
+    layout.tsx             # root layout: <html>/<body> + ThemeProvider
+    page.tsx               # bare "/" → redirects to /th/ (dev + export)
+    [lang]/                # locale layout (Navbar/Footer) + pages
       page.tsx             # Home (hero, highlights, intro, services preview)
       our-story/page.tsx   # Our Story (Lanna heritage timeline)
       services/
@@ -38,7 +40,7 @@ src/
         loading.tsx        # skeleton (animate-pulse) for client navigation
       contact/page.tsx     # Contact info, socials, embedded map
     favicon.ico
-  components/               # Navbar, Footer, ThemeToggle, LanguageSwitcher, …
+  components/               # Navbar, Footer, ThemeToggle, LanguageSwitcher, HtmlLang, …
   i18n/
     locales.ts             # supported locales + guards
     types.ts               # Dictionary shape (keeps all locales in sync)
@@ -47,17 +49,18 @@ src/
   lib/site.ts              # hardcoded business data + service prices
   styles/                  # globals.css (theme tokens) + font.ts
 public/
-  index.html               # static "/" → "/th/" redirect (no middleware on export)
   images/                  # drop real brand photos here (see below)
 ```
 
 ## How localization works
 
-Every route lives under `src/app/[lang]/`. `generateStaticParams` prerenders one
-HTML tree per locale, and `dynamicParams = false` 404s unknown locales. Copy lives
+Every page lives under `src/app/[lang]/`. `generateStaticParams` prerenders one
+route tree per locale, and `dynamicParams = false` 404s unknown locales. Copy lives
 in server-loaded dictionaries (`src/i18n/dictionaries/*`), typed against
 `Dictionary`, so a missing translation is a compile error. Because static export
-has no middleware, the bare `/` is redirected to `/th/` by `public/index.html`.
+has no middleware, the bare `/` redirects to `/th/` via a client redirect in
+`src/app/page.tsx` (works in dev and in the export). The `<html lang>` defaults to
+`th` and is synced per-locale on the client by `HtmlLang`.
 
 ## Replacing placeholder assets
 

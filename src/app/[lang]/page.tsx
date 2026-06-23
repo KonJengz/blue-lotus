@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Image from "next/image";
+import { ArrowRight, CheckCircle2, MapPin } from "lucide-react";
 import { LotusMark } from "@/components/Logo";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale } from "@/i18n/locales";
@@ -39,10 +41,20 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
     <>
       {/* ---------- Hero ---------- */}
       <section className="relative overflow-hidden border-b border-border">
-        {/* warm, calming gradient backdrop (placeholder for a real photo) */}
+        {/* Real photo background with overlay */}
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2000&auto=format&fit=crop"
+            alt="Thai Massage Spa Background"
+            fill
+            className="object-cover opacity-20 dark:opacity-10"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-surface/90 via-surface/80 to-surface/90" />
+        </div>
         <div
           aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-gradient-to-br from-surface-muted via-background to-surface"
+          className="absolute -right-24 -top-24 -z-10 h-96 w-96 rounded-full bg-accent/20 blur-3xl animate-pulse"
         />
         <div
           aria-hidden="true"
@@ -54,24 +66,24 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               {dict.hero.eyebrow}
             </p>
-            <h1 className="text-balance text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
+            <h1 className="text-balance text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl animate-in fade-in slide-in-from-bottom-4 duration-700">
               {dict.hero.title}
             </h1>
-            <p className="max-w-xl text-pretty text-base leading-relaxed text-muted sm:text-lg">
+            <p className="max-w-xl text-pretty text-base leading-relaxed text-muted sm:text-lg animate-in fade-in slide-in-from-bottom-6 duration-1000">
               {dict.hero.subtitle}
             </p>
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-150">
               <Link
                 href={`${base}/contact/`}
-                className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:opacity-90 hover:scale-105 shadow-md"
               >
                 {dict.hero.ctaPrimary}
               </Link>
               <Link
                 href={`${base}/services/`}
-                className="inline-flex items-center justify-center rounded-lg border border-border bg-surface px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-surface-muted"
+                className="inline-flex items-center justify-center rounded-lg border border-border bg-surface px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-surface-muted hover:border-accent"
               >
-                {dict.hero.ctaSecondary}
+                {dict.hero.ctaSecondary} <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </div>
             <p className="flex items-center gap-2 text-sm text-muted">
@@ -106,8 +118,11 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
           {dict.highlights.items.map((item) => (
             <li
               key={item.title}
-              className="rounded-lg border border-border bg-surface p-6 text-center"
+              className="rounded-lg border border-border bg-surface p-6 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-accent/50"
             >
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
+                <CheckCircle2 className="h-6 w-6" />
+              </div>
               <h3 className="text-lg font-semibold text-foreground">
                 {item.title}
               </h3>
@@ -134,7 +149,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
             {dict.intro.values.map((v) => (
               <li
                 key={v.title}
-                className="rounded-lg border border-border bg-surface p-5"
+                className="rounded-lg border border-border bg-surface p-5 transition-all duration-300 hover:shadow-md hover:border-accent"
               >
                 <h3 className="font-semibold text-accent">{v.title}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-muted">
@@ -169,9 +184,17 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
           {previewServices.map((svc) => (
             <li
               key={svc.id}
-              className="flex flex-col gap-3 rounded-lg border border-border bg-surface p-5"
+              className="group flex flex-col gap-3 rounded-lg border border-border bg-surface p-5 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-accent"
             >
-              <LotusMark className="h-8 w-8 text-accent" />
+              <div className="mb-2 overflow-hidden rounded-md relative h-32 w-full">
+                 <Image
+                    src={`https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=800&auto=format&fit=crop&text=${svc.id}`}
+                    alt={dict.services.names[svc.id]}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                 />
+              </div>
+              <LotusMark className="h-8 w-8 text-accent transition-transform duration-300 group-hover:rotate-12" />
               <h3 className="font-semibold text-foreground">
                 {dict.services.names[svc.id]}
               </h3>
@@ -196,15 +219,15 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
           <div className="flex flex-wrap justify-center gap-3">
             <a
               href={site.phoneHref}
-              className="inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90"
+              className="inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-all duration-300 hover:opacity-90 hover:scale-105 shadow-lg"
             >
               {site.phone}
             </a>
             <Link
               href={`${base}/contact/`}
-              className="inline-flex items-center justify-center rounded-lg border border-primary-foreground/30 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+              className="inline-flex items-center justify-center rounded-lg border border-primary-foreground/30 px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary-foreground/10 hover:border-primary-foreground"
             >
-              {dict.nav.contact}
+              <MapPin className="mr-2 h-4 w-4" /> {dict.nav.contact}
             </Link>
           </div>
         </div>

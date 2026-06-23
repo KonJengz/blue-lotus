@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import "../../styles/globals.css";
-import { fontVariables } from "@/styles/font";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { notFound } from "next/navigation";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { HtmlLang } from "@/components/HtmlLang";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale, locales } from "@/i18n/locales";
-import { notFound } from "next/navigation";
 
-/** Prerender one HTML tree per locale (required for `output: 'export'`). */
+/** Prerender one route tree per locale (required for `output: 'export'`). */
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
@@ -23,11 +21,14 @@ export async function generateMetadata({
   if (!isLocale(lang)) return {};
   const dict = await getDictionary(lang);
   return {
-    title: {
-      default: dict.meta.home.title,
-      template: "%s · Blue Lotus",
-    },
     description: dict.meta.home.description,
+    alternates: {
+      languages: {
+        th: "/th",
+        en: "/en",
+        zh: "/zh",
+      },
+    },
   };
 }
 
@@ -41,19 +42,11 @@ export default async function LocaleLayout({
   const dict = await getDictionary(lang);
 
   return (
-    <html
-      lang={lang}
-      className={`${fontVariables} h-full antialiased`}
-      data-scroll-behavior="smooth"
-      suppressHydrationWarning
-    >
-      <body className="flex min-h-full flex-col">
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <Navbar lang={lang} nav={dict.nav} />
-          <main className="flex-1">{children}</main>
-          <Footer lang={lang} dict={dict} />
-        </ThemeProvider>
-      </body>
-    </html>
+    <>
+      <HtmlLang lang={lang} />
+      <Navbar lang={lang} nav={dict.nav} />
+      <main className="flex-1">{children}</main>
+      <Footer lang={lang} dict={dict} />
+    </>
   );
 }

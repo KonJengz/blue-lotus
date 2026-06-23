@@ -8,7 +8,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 This project is a Next.js 16 App Router website for a Thai traditional massage shop. It is an informational marketing website only. Keep the product surface focused on presenting the business, services, opening hours, location, contact details, prices or packages, safety notes, FAQs, and trust-building content.
 
-The site must support Thai and English content. Use `th` and `en` as the supported locales, with Thai as the default unless the user asks otherwise. Do not add booking, payments, account, ecommerce, auth, dashboards, CMS, or form submission flows unless the user explicitly requests them.
+The site must support Thai, English, and Simplified Chinese content. Use `th`, `en`, and `zh` as the supported locales, with Thai as the default unless the user asks otherwise. Keep the supported locale list in `src/i18n/locales.ts` as the single source of truth. Do not add booking, payments, account, ecommerce, auth, dashboards, CMS, or form submission flows unless the user explicitly requests them.
 
 # Tooling
 
@@ -35,13 +35,31 @@ The site must support Thai and English content. Use `th` and `en` as the support
 
 - Prefer route-based localization with `src/app/[lang]/...`.
 - Validate locales with a shared source such as `src/i18n/locales.ts`. Invalid locales should call `notFound()`.
-- Keep translations in server-loaded dictionaries, for example `src/i18n/dictionaries/th.json` and `src/i18n/dictionaries/en.json`, or typed `.ts` dictionary files if stronger typing is useful.
+- Keep translations in server-loaded dictionaries, for example `src/i18n/dictionaries/th.ts`, `src/i18n/dictionaries/en.ts`, and `src/i18n/dictionaries/zh.ts`, or JSON dictionary files if the project moves that direction.
 - Do not hard-code user-facing copy directly inside reusable components when it needs translation. Pass translated strings from the page or dictionary layer.
-- Generate static locale params for public routes when possible:
-  - `generateStaticParams()` should return `[{ lang: "th" }, { lang: "en" }]`.
-  - Set `<html lang={lang}>` from the active locale.
+- Generate static locale params for public routes from the shared `locales` array, not from hard-coded duplicated arrays.
+- Set `<html lang={lang}>` from the active locale. Use `zh` for Simplified Chinese unless the project later needs region-specific tags such as `zh-CN`.
 - Use localized metadata. Include canonical and alternate language URLs when routes are locale-specific.
-- Thai copy should sound natural and respectful. English copy should be clear and not overly literal. Keep claims factual and avoid medical cure guarantees.
+- Thai copy should sound natural and respectful. English copy should be clear and not overly literal. Chinese copy should read naturally for travelers and avoid machine-translated phrasing. Keep claims factual and avoid medical cure guarantees.
+
+# Recommended Site Content
+
+- Include a complete services and price table with duration, price, and a short explanation of who each massage is suitable for.
+- Add a clear contact section with phone, map link, opening hours, nearby landmark or transit details, and social links.
+- Add a concise FAQ covering walk-ins, reservations, what to prepare before massage, payment methods, language support, and safety limitations.
+- Add a safety and suitability section that explains when customers should inform staff before massage.
+- Add trust signals only when true: therapist experience, training, hygiene standards, real shop photos, reviews, official social links, and business registration or certification details.
+- Add practical visitor information for tourists: location directions, parking or transit notes, accepted payment methods, and whether staff can communicate in Thai, English, or Chinese.
+- Add a gallery only with real shop, room, treatment, or atmosphere images. Avoid generic stock photos when the user needs to assess the actual place.
+- If collecting any personal data in the future, add a privacy policy before launching that feature.
+
+# SEO And Structured Data
+
+- Add localized page titles and descriptions for every public route.
+- Add `alternates.languages` metadata for `th`, `en`, and `zh` routes so search engines can connect equivalent pages.
+- Add `robots.ts` and `sitemap.ts` when the public route set is stable.
+- Consider JSON-LD structured data for `LocalBusiness` or `HealthAndBeautyBusiness`, including name, address, phone, opening hours, geo, sameAs social links, and supported languages when real details are available.
+- Keep NAP information (name, address, phone) consistent across every language.
 
 # Content Scope
 
