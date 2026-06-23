@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
+/* next-themes toggles a `.dark` class on <html>; wire Tailwind's `dark:` to it. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Blue Lotus palette — calm Thai wellness:
+  deep navy (brand), warm gold (accent), soft cream surfaces.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f3ea;
+  --surface: #ffffff;
+  --surface-muted: #f1ebdd;
+  --foreground: #1d2738;
+  --muted: #6b6657;
+  --border: #e6ddcc;
+  --primary: #16243f; /* navy */
+  --primary-foreground: #f7f3ea;
+  --accent: #b8923e; /* gold */
+  --accent-foreground: #ffffff;
+}
+
+.dark {
+  --background: #0e1521;
+  --surface: #15202f;
+  --surface-muted: #1b2737;
+  --foreground: #e9e3d6;
+  --muted: #9aa3b2;
+  --border: #25324a;
+  --primary: #cba94f; /* gold reads as the lead color on dark */
+  --primary-foreground: #0e1521;
+  --accent: #cdab57;
+  --accent-foreground: #0e1521;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --font-sans: var(--font-inter), var(--font-noto-thai), system-ui,
+    "Noto Sans Thai", sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Respect users who prefer reduced motion for the pulse skeletons. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Blue Lotus — Thai Therapeutic Massage
 
-## Getting Started
+Static informational website for **Blue Lotus**, a Thai traditional massage shop
+near BTS Khlong San. Built with Next.js 16 (App Router), TypeScript, Tailwind CSS
+v4, and exported as a fully static site.
 
-First, run the development server:
+## Tech stack
+
+- **Framework:** Next.js 16 (App Router) — `output: 'export'`
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Theme:** light/dark via `next-themes`
+- **i18n:** route-based locales `th` (default), `en`, `zh`
+- **Package manager:** Bun
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install      # install dependencies
+bun dev          # start the dev server → http://localhost:3000
+bun run lint     # lint
+bun run build    # static export → ./out
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The dev server opens at `/` and redirects to `/th/`. The static export writes
+HTML/CSS/JS into `out/`, which can be hosted on any static host.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/
+    [lang]/                # locale root layout (renders <html lang>) + pages
+      page.tsx             # Home (hero, highlights, intro, services preview)
+      our-story/page.tsx   # Our Story (Lanna heritage timeline)
+      services/
+        page.tsx           # Services price table
+        loading.tsx        # skeleton (animate-pulse) for client navigation
+      contact/page.tsx     # Contact info, socials, embedded map
+    favicon.ico
+  components/               # Navbar, Footer, ThemeToggle, LanguageSwitcher, …
+  i18n/
+    locales.ts             # supported locales + guards
+    types.ts               # Dictionary shape (keeps all locales in sync)
+    dictionaries.ts        # server-only loader
+    dictionaries/{th,en,zh}.ts
+  lib/site.ts              # hardcoded business data + service prices
+  styles/                  # globals.css (theme tokens) + font.ts
+public/
+  index.html               # static "/" → "/th/" redirect (no middleware on export)
+  images/                  # drop real brand photos here (see below)
+```
 
-## Learn More
+## How localization works
 
-To learn more about Next.js, take a look at the following resources:
+Every route lives under `src/app/[lang]/`. `generateStaticParams` prerenders one
+HTML tree per locale, and `dynamicParams = false` 404s unknown locales. Copy lives
+in server-loaded dictionaries (`src/i18n/dictionaries/*`), typed against
+`Dictionary`, so a missing translation is a compile error. Because static export
+has no middleware, the bare `/` is redirected to `/th/` by `public/index.html`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Replacing placeholder assets
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The brand mark is currently a lightweight inline SVG (`src/components/Logo.tsx`).
+To use the real artwork, drop the files into `public/images/` and swap the
+`<LotusMark>` / hero panel for `next/image`:
 
-## Deploy on Vercel
+- `public/images/logo.png` — official Blue Lotus logo (785836.jpg)
+- `public/images/hero.jpg` — atmosphere/treatment photo for the home hero
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`next.config.ts` already sets `images: { unoptimized: true }`, so local images
+work without an image-optimization server.
