@@ -5,13 +5,7 @@ import { site } from "@/lib/site";
 import type { Locale } from "@/i18n/locales";
 import type { Dictionary } from "@/i18n/types";
 
-export function Footer({
-  lang,
-  dict,
-}: {
-  lang: Locale;
-  dict: Dictionary;
-}) {
+export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const base = `/${lang}`;
   const { footer, nav, contact } = dict;
   const year = new Date().getFullYear();
@@ -25,7 +19,7 @@ export function Footer({
 
   return (
     <footer className="mt-auto border-t border-border bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 pt-12 pb-20 sm:px-6 md:grid-cols-3">
         {/* Brand */}
         <div className="space-y-4">
           <Logo />
@@ -59,7 +53,7 @@ export function Footer({
           <h2 className="text-sm font-semibold uppercase tracking-wide text-foreground">
             {footer.visitUs}
           </h2>
-          <ul className="space-y-2 text-sm text-muted">
+          <ul className="space-y-4 text-sm text-muted">
             <li>
               <span className="block font-medium text-foreground">
                 {contact.hoursLabel}

@@ -54,16 +54,29 @@ export default async function ContactPage({
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Info cards */}
           <div className="space-y-4">
-            <InfoCard label={c.hoursLabel} icon={<Clock className="h-5 w-5 text-accent" strokeWidth={1.5} />}>
+            <InfoCard
+              label={c.hoursLabel}
+              icon={<Clock className="h-5 w-5 text-accent" strokeWidth={1.5} />}
+            >
               {site.hours.open} – {site.hours.close}
               <span className="block text-sm text-muted">
                 {dict.hero.openDaily}
               </span>
             </InfoCard>
 
-            <InfoCard label={c.locationLabel} icon={<MapPin className="h-5 w-5 text-accent" strokeWidth={1.5} />}>{location}</InfoCard>
+            <InfoCard
+              label={c.locationLabel}
+              icon={
+                <MapPin className="h-5 w-5 text-accent" strokeWidth={1.5} />
+              }
+            >
+              {location}
+            </InfoCard>
 
-            <InfoCard label={c.phoneLabel} icon={<Phone className="h-5 w-5 text-accent" strokeWidth={1.5} />}>
+            <InfoCard
+              label={c.phoneLabel}
+              icon={<Phone className="h-5 w-5 text-accent" strokeWidth={1.5} />}
+            >
               <a
                 href={site.phoneHref}
                 className="font-medium text-foreground transition-colors hover:text-accent"
@@ -110,7 +123,7 @@ export default async function ContactPage({
               src={site.mapEmbedUrl}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="h-80 w-full lg:h-full lg:min-h-[28rem]"
+              className="h-80 w-full lg:h-full lg:min-h-112"
             />
           </div>
         </div>

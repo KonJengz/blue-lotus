@@ -15,11 +15,7 @@ import {
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale } from "@/i18n/locales";
 import { durations, services, site } from "@/lib/site";
-import {
-  createPageMetadata,
-  localBusinessJsonLd,
-  safeJsonLd,
-} from "@/lib/seo";
+import { createPageMetadata, localBusinessJsonLd, safeJsonLd } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -101,7 +97,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
           fetchPriority="high"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/50 to-transparent" />
 
         <div className="relative z-10 mx-auto flex min-h-[85svh] max-w-6xl items-end px-6 pb-20 lg:items-center lg:pb-0">
           <div className="max-w-lg">
@@ -149,13 +145,13 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
             return (
               <div
                 key={item.title}
-                className="flex flex-col items-center gap-2 px-6 py-8 text-center"
+                className="flex flex-col items-center gap-2 px-6 py-16 text-center"
               >
-                <Icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
-                <h2 className="text-sm font-semibold text-foreground">
+                <Icon className="h-10 w-10 text-accent" strokeWidth={1} />
+                <h2 className="mt-4 text-sm font-semibold text-foreground">
                   {item.title}
                 </h2>
-                <p className="mt-1 text-sm leading-relaxed text-muted">
+                <p className="text-sm leading-relaxed text-muted">
                   {item.description}
                 </p>
               </div>
@@ -184,7 +180,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
                 return (
                   <li key={v.title} className="flex gap-3">
                     <VIcon
-                      className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+                      className="mt-0.5 h-5 w-5 shrink-0 text-accent"
                       strokeWidth={1.5}
                     />
                     <div>
