@@ -38,7 +38,7 @@ export default async function LocaleLayout({
     <>
       <HtmlLang lang={lang} />
       <Navbar lang={lang} nav={dict.nav} />
-      <main className="flex-1 pb-20">{children}</main>
+      <main className="flex-1">{children}</main>
       <Footer lang={lang} dict={dict} />
     </>
   );

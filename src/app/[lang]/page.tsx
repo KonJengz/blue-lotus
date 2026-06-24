@@ -72,7 +72,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const serviceImages = {
     thai: `${treatmentRoomImage}?service`,
     foot: `${footMassageImage}?service`,
-    headNeckShoulder: `${footMassageImage}?service`,
+    headNeckShoulder: `${treatmentRoomImage}?service`,
     herbalCompress: `${treatmentRoomImage}?service`,
     neckShoulderHot: `${treatmentRoomImage}?service`,
     footNeckShoulder: `${footMassageImage}?service`,
@@ -145,7 +145,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
             return (
               <div
                 key={item.title}
-                className="flex flex-col items-center gap-2 px-6 py-16 text-center"
+                className="flex flex-col items-center gap-2 px-6 py-8 md:py-16 text-center"
               >
                 <Icon className="h-10 w-10 text-accent" strokeWidth={1} />
                 <h2 className="mt-4 text-sm font-semibold text-foreground">
