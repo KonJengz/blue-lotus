@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Clock, ExternalLink, MapPin, Phone, Share2 } from "lucide-react";
 import { SocialLinks } from "@/components/SocialLinks";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale } from "@/i18n/locales";
@@ -50,16 +51,16 @@ export default async function ContactPage({
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Info cards */}
           <div className="space-y-4">
-            <InfoCard label={c.hoursLabel}>
+            <InfoCard label={c.hoursLabel} icon={<Clock className="h-5 w-5 text-accent" strokeWidth={1.5} />}>
               {site.hours.open} – {site.hours.close}
               <span className="block text-sm text-muted">
                 {dict.hero.openDaily}
               </span>
             </InfoCard>
 
-            <InfoCard label={c.locationLabel}>{location}</InfoCard>
+            <InfoCard label={c.locationLabel} icon={<MapPin className="h-5 w-5 text-accent" strokeWidth={1.5} />}>{location}</InfoCard>
 
-            <InfoCard label={c.phoneLabel}>
+            <InfoCard label={c.phoneLabel} icon={<Phone className="h-5 w-5 text-accent" strokeWidth={1.5} />}>
               <a
                 href={site.phoneHref}
                 className="font-medium text-foreground transition-colors hover:text-accent"
@@ -72,7 +73,8 @@ export default async function ContactPage({
             </InfoCard>
 
             <div className="rounded-lg border border-border bg-surface p-5">
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-foreground">
+              <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-foreground">
+                <Share2 className="h-4 w-4 text-accent" strokeWidth={1.5} />
                 {c.followLabel}
               </h2>
               <SocialLinks className="mt-3" />
@@ -83,6 +85,7 @@ export default async function ContactPage({
                 href={site.phoneHref}
                 className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
               >
+                <Phone className="mr-2 h-4 w-4" />
                 {c.callCta}
               </a>
               <a
@@ -91,6 +94,7 @@ export default async function ContactPage({
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-lg border border-border bg-surface px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-surface-muted"
               >
+                <ExternalLink className="mr-2 h-4 w-4" />
                 {c.mapCta}
               </a>
             </div>
@@ -114,17 +118,20 @@ export default async function ContactPage({
 
 function InfoCard({
   label,
+  icon,
   children,
 }: {
   label: string;
+  icon?: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
     <div className="rounded-lg border border-border bg-surface p-5">
-      <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
+      <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-muted">
+        {icon}
         {label}
       </h2>
-      <div className="mt-1 text-lg font-medium text-foreground">{children}</div>
+      <div className="mt-2 text-lg font-medium text-foreground">{children}</div>
     </div>
   );
 }

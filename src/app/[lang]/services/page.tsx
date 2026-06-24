@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Clock, MapPin, Phone, ShieldAlert } from "lucide-react";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale } from "@/i18n/locales";
 import { services, durations, site } from "@/lib/site";
@@ -40,7 +41,10 @@ export default async function ServicesPage({
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted">
             {s.subtitle}
           </p>
-          <p className="mt-3 text-sm text-muted">{dict.hero.openDaily}</p>
+          <p className="mt-3 flex items-center justify-center gap-1.5 text-sm text-muted">
+            <Clock className="h-4 w-4" />
+            {dict.hero.openDaily}
+          </p>
         </div>
       </header>
 
@@ -124,7 +128,8 @@ export default async function ServicesPage({
 
         {/* Safety note */}
         <section className="mt-10 rounded-lg border border-accent/30 bg-accent/5 p-6">
-          <h2 className="text-base font-semibold text-foreground">
+          <h2 className="flex items-center gap-2 text-base font-semibold text-foreground">
+            <ShieldAlert className="h-5 w-5 text-accent" strokeWidth={1.5} />
             {s.safetyTitle}
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted">
@@ -138,12 +143,14 @@ export default async function ServicesPage({
             href={site.phoneHref}
             className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
           >
+            <Phone className="mr-2 h-4 w-4" />
             {dict.contact.callCta} · {site.phone}
           </a>
           <Link
             href={`${base}/contact/`}
             className="inline-flex items-center justify-center rounded-lg border border-border bg-surface px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-surface-muted"
           >
+            <MapPin className="mr-2 h-4 w-4" />
             {dict.nav.contact}
           </Link>
         </div>
