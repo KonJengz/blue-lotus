@@ -44,7 +44,7 @@ const zh: Dictionary = {
     openDaily: "每日营业 10:00 – 21:00",
   },
   highlights: {
-    heading: "为什么选择 Blue Lotus",
+    heading: "Blue Lotus 的独特体验",
     items: [
       {
         title: "专业按摩师",
@@ -61,7 +61,7 @@ const zh: Dictionary = {
     ],
   },
   intro: {
-    heading: "Blue Lotus 是用心的呵护",
+    heading: "专注为您提供贴心的呵护",
     body: "我们相信，好的按摩不只是放松肌肉，更是让身心回归平衡。每一个环节都为让您真正放松而设计。",
     values: [
       {
@@ -69,8 +69,8 @@ const zh: Dictionary = {
         description: "依据每个人的身体状况调整力度与手法。",
       },
       {
-        title: "整洁",
-        description: "每次服务都注重清洁与卫生。",
+        title: "卫生与整洁",
+        description: "每次服务都注重最高标准的清洁与卫生。",
       },
       {
         title: "传承",
@@ -131,7 +131,7 @@ const zh: Dictionary = {
     },
     safetyTitle: "安全提示",
     safetyBody:
-      "如果您怀孕、有急性损伤、发烧、重大病史或近期手术，请在按摩前告知工作人员或咨询专业医师。按摩是用于放松的养生服务，不能替代医疗护理。",
+      "如果您正处于孕期、有急性损伤、发烧、患有重大疾病或近期曾进行手术，请在按摩前告知我们的工作人员或咨询专业医师。我们希望确保您的护理安全，让您能够真正享受放松的体验。",
   },
   contact: {
     heading: "联系我们",

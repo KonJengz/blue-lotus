@@ -44,7 +44,7 @@ const en: Dictionary = {
     openDaily: "Open daily 10:00 AM – 9:00 PM",
   },
   highlights: {
-    heading: "Why Blue Lotus",
+    heading: "The Blue Lotus Experience",
     items: [
       {
         title: "Skilled therapists",
@@ -61,7 +61,7 @@ const en: Dictionary = {
     ],
   },
   intro: {
-    heading: "Blue Lotus is care, made personal",
+    heading: "Attentive care for your well-being",
     body: "We believe great massage is more than releasing muscles — it restores balance to both body and mind. Every step is designed so you can truly rest.",
     values: [
       {
@@ -132,7 +132,7 @@ const en: Dictionary = {
     },
     safetyTitle: "A note on safety",
     safetyBody:
-      "If you are pregnant, have an acute injury, fever, a major medical condition, or have had recent surgery, please tell our staff or consult a healthcare professional before your massage. Massage is a wellness service for relaxation, not a substitute for medical care.",
+      "If you are pregnant, have an acute injury, fever, a major medical condition, or have had recent surgery, please let our staff know or consult a healthcare professional before your massage. We want to ensure your treatment is safe and truly relaxing.",
   },
   contact: {
     heading: "Contact Us",

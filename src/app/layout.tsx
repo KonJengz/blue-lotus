@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
   applicationName: "Blue Lotus",
   title: {
-    default: "Blue Lotus — Thai Therapeutic Massage",
+    default: "Blue Lotus | Thai Therapeutic Massage",
     template: "%s",
   },
   description:
