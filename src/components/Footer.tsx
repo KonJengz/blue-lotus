@@ -19,7 +19,7 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
 
   return (
     <footer className="mt-auto border-t border-border bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 pt-12 pb-20 sm:px-6 md:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 pt-12 pb-20 lg:pb-30 sm:px-6 md:grid-cols-3">
         {/* Brand */}
         <div className="space-y-4">
           <Logo />
