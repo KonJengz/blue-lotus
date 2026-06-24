@@ -46,9 +46,13 @@ export default async function OurStoryPage({
             <li key={section.title} className="relative">
               <span
                 aria-hidden="true"
-                className="absolute -start-[2.6rem] flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface text-sm font-semibold text-accent"
+                className="absolute -inset-s-12 flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface text-sm font-semibold text-accent"
               >
-                {i === 0 ? <BookOpen className="h-4 w-4" strokeWidth={1.5} /> : i + 1}
+                {i === 0 ? (
+                  <BookOpen className="h-4 w-4" strokeWidth={1.5} />
+                ) : (
+                  i + 1
+                )}
               </span>
               <h2 className="text-xl font-semibold text-foreground">
                 {section.title}

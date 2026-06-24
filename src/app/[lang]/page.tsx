@@ -89,7 +89,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
           fetchPriority="high"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/40 to-transparent" />
 
         <div className="relative z-10 mx-auto flex min-h-[85svh] max-w-6xl items-end px-6 pb-20 lg:items-center lg:pb-0">
           <div className="max-w-lg">
@@ -135,7 +135,10 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
           {dict.highlights.items.map((item, i) => {
             const Icon = [Award, Sparkles, Train][i];
             return (
-              <div key={item.title} className="flex flex-col items-center gap-2 px-6 py-8 text-center">
+              <div
+                key={item.title}
+                className="flex flex-col items-center gap-2 px-6 py-8 text-center"
+              >
                 <Icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
                 <h2 className="text-sm font-semibold text-foreground">
                   {item.title}
@@ -168,12 +171,17 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
                 const VIcon = [Heart, Sparkles, Award][i];
                 return (
                   <li key={v.title} className="flex gap-3">
-                    <VIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent" strokeWidth={1.5} />
+                    <VIcon
+                      className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+                      strokeWidth={1.5}
+                    />
                     <div>
                       <h3 className="text-sm font-semibold text-foreground">
                         {v.title}
                       </h3>
-                      <p className="mt-0.5 text-sm text-muted">{v.description}</p>
+                      <p className="mt-0.5 text-sm text-muted">
+                        {v.description}
+                      </p>
                     </div>
                   </li>
                 );
@@ -229,7 +237,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
                 href={`${base}/services/`}
                 className="group relative overflow-hidden rounded-md"
               >
-                <div className="relative aspect-[3/4]">
+                <div className="relative aspect-3/4">
                   <Image
                     src={serviceImages[svc.id]}
                     alt={dict.services.names[svc.id]}
@@ -237,7 +245,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
                 </div>
                 <div className="absolute inset-x-0 bottom-0 p-5">
                   <h3 className="text-lg font-semibold text-white">

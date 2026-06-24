@@ -52,7 +52,7 @@ export default function Loading() {
           <Skeleton className="h-8 w-48" />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[1, 2, 3, 4].map((i) => (
-              <Skeleton key={i} className="aspect-[3/4] w-full rounded-md" />
+              <Skeleton key={i} className="aspect-3/4 w-full rounded-md" />
             ))}
           </div>
         </div>
