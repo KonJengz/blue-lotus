@@ -4,6 +4,7 @@ import { BookOpen } from "lucide-react";
 import { LotusMark } from "@/components/Logo";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale } from "@/i18n/locales";
+import { createPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -11,10 +12,12 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!isLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return {
+  return createPageMetadata({
+    locale: lang,
+    route: "/our-story",
     title: dict.meta.story.title,
     description: dict.meta.story.description,
-  };
+  });
 }
 
 export default async function OurStoryPage({

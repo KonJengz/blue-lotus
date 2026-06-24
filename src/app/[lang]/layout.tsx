@@ -22,13 +22,6 @@ export async function generateMetadata({
   const dict = await getDictionary(lang);
   return {
     description: dict.meta.home.description,
-    alternates: {
-      languages: {
-        th: "/th",
-        en: "/en",
-        zh: "/zh",
-      },
-    },
   };
 }
 

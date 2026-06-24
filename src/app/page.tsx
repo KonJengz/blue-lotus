@@ -1,28 +1,23 @@
-"use client";
-
-import { useEffect } from "react";
+import type { Metadata } from "next";
+import { RootLocaleRedirect } from "@/components/RootLocaleRedirect";
 import { defaultLocale } from "@/i18n/locales";
+import { absoluteUrl, languageAlternates, localizedPath } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: absoluteUrl(localizedPath(defaultLocale)),
+    languages: languageAlternates(""),
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 /**
- * The bare "/" route. Static export can't use middleware, so we redirect to the
- * default locale on the client. This works in both `bun dev` and the export.
+ * Static export can't use middleware, so "/" redirects to the default locale on
+ * the client while staying noindex to avoid duplicate locale content.
  */
 export default function RootRedirect() {
-  const target = `/${defaultLocale}/`;
-
-  useEffect(() => {
-    window.location.replace(target);
-  }, [target]);
-
-  return (
-    <div className="grid min-h-[60vh] place-items-center px-4 text-center">
-      <p className="text-sm text-muted">
-        Redirecting to{" "}
-        <a href={target} className="font-medium text-accent hover:underline">
-          Blue Lotus
-        </a>
-        …
-      </p>
-    </div>
-  );
+  return <RootLocaleRedirect target={`/${defaultLocale}/`} />;
 }

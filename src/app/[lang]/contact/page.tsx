@@ -5,6 +5,7 @@ import { SocialLinks } from "@/components/SocialLinks";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale } from "@/i18n/locales";
 import { site } from "@/lib/site";
+import { createPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -12,10 +13,12 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!isLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return {
+  return createPageMetadata({
+    locale: lang,
+    route: "/contact",
     title: dict.meta.contact.title,
     description: dict.meta.contact.description,
-  };
+  });
 }
 
 export default async function ContactPage({

@@ -5,6 +5,7 @@ import { Clock, MapPin, Phone, ShieldAlert } from "lucide-react";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale } from "@/i18n/locales";
 import { services, durations, site } from "@/lib/site";
+import { createPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -12,10 +13,12 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!isLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return {
+  return createPageMetadata({
+    locale: lang,
+    route: "/services",
     title: dict.meta.services.title,
     description: dict.meta.services.description,
-  };
+  });
 }
 
 export default async function ServicesPage({

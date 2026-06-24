@@ -15,6 +15,11 @@ import {
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale } from "@/i18n/locales";
 import { durations, services, site } from "@/lib/site";
+import {
+  createPageMetadata,
+  localBusinessJsonLd,
+  safeJsonLd,
+} from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -22,10 +27,12 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!isLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return {
+  return createPageMetadata({
+    locale: lang,
+    route: "",
     title: dict.meta.home.title,
     description: dict.meta.home.description,
-  };
+  });
 }
 
 export default async function HomePage({ params }: PageProps<"/[lang]">) {
@@ -75,9 +82,14 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
     footNeckShoulder: `${footMassageImage}?service`,
     oilHead: `${footMassageImage}?service`,
   } satisfies Record<(typeof services)[number]["id"], string>;
+  const jsonLd = localBusinessJsonLd(lang, dict);
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
+      />
       {/* ── Hero ── */}
       <section className="relative min-h-[85svh] overflow-hidden">
         <Image
