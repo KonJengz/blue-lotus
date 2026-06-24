@@ -42,9 +42,9 @@ function ogLocale(locale: Locale) {
 
 function imageAlt(locale: Locale) {
   const map: Record<Locale, string> = {
-    th: "ห้องนวดบลูโลตัสพร้อมเตียงนวดและม่านผ้าไทย",
-    en: "Blue Lotus treatment room with Thai massage beds and curtains",
-    zh: "Blue Lotus 按摩房，设有泰式按摩床与布帘",
+    th: "โลโก้ร้านบลูโลตัส",
+    en: "Blue Lotus Logo",
+    zh: "Blue Lotus 标志",
   };
   return map[locale];
 }
@@ -61,7 +61,7 @@ export function createPageMetadata({
   description: string;
 }): Metadata {
   const url = absoluteUrl(localizedPath(locale, route));
-  const image = absoluteUrl("/images/blue-lotus-treatment-room.jpg");
+  const image = absoluteUrl("/images/blue-lotus-logo-icon-mask.png");
 
   return {
     title,
@@ -83,8 +83,6 @@ export function createPageMetadata({
       images: [
         {
           url: image,
-          width: 2400,
-          height: 1600,
           alt: imageAlt(locale),
         },
       ],
@@ -100,7 +98,7 @@ export function createPageMetadata({
 
 export function localBusinessJsonLd(locale: Locale, dict: Dictionary) {
   const url = absoluteUrl(localizedPath(locale));
-  const image = absoluteUrl("/images/blue-lotus-treatment-room.jpg");
+  const image = absoluteUrl("/images/blue-lotus-logo-icon-mask.png");
 
   return {
     "@context": "https://schema.org",

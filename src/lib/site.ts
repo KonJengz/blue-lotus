@@ -7,7 +7,7 @@ export const site = {
   name: "Blue Lotus",
   fullName: "Blue Lotus — Thai Therapeutic Massage",
   // Replace at deploy time with the production origin, e.g. https://example.com
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://blue-lotus.example",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://bluelotus.brotherstaste.dev",
   phone: "081-632-6244",
   phoneHref: "tel:+66816326244",
   hours: { open: "10:00", close: "21:00" },
