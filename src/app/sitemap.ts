@@ -15,6 +15,7 @@ const priorities: Record<PublicRoute, number> = {
   "/services": 0.9,
   "/contact": 0.8,
   "/our-story": 0.7,
+  "/reviews": 0.7,
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {

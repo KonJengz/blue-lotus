@@ -22,12 +22,18 @@ const en: Dictionary = {
       description:
         "Location, map and contact details for Blue Lotus, near BTS Khlong San (Soi Somdet Chao Phraya 17). Call 081-632-6244.",
     },
+    reviews: {
+      title: "Customer Reviews — Blue Lotus",
+      description:
+        "Read testimonials and reviews from our guests who experienced traditional Thai massage at Blue Lotus.",
+    },
   },
   nav: {
     home: "Home",
     story: "Our Story",
     services: "Services",
     contact: "Contact",
+    reviews: "Reviews",
     bookNow: "Book Now",
     openMenu: "Open menu",
     closeMenu: "Close menu",
@@ -82,6 +88,12 @@ const en: Dictionary = {
     heading: "Popular treatments",
     subtitle: "Choose the massage that suits you, with 60 / 90 / 120-minute options.",
     viewAll: "See full menu & prices",
+  },
+  testimonials: {
+    heading: "What our guests say",
+    readMore: "Read more",
+    readLess: "Show less",
+    source: "Review from Google Maps",
   },
   story: {
     heading: "Our Story",

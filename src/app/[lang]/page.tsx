@@ -16,6 +16,8 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale } from "@/i18n/locales";
 import { durations, services, site } from "@/lib/site";
 import { createPageMetadata, localBusinessJsonLd, safeJsonLd } from "@/lib/seo";
+import { allReviews } from "@/lib/reviews";
+import { ReviewsGrid } from "@/components/ReviewsGrid";
 
 export async function generateMetadata({
   params,
@@ -37,6 +39,10 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
 
   const dict = await getDictionary(lang);
   const base = `/${lang}`;
+  const reviews = allReviews.map((review) => ({
+    name: review.name,
+    text: review.text[lang],
+  }));
 
   const treatmentRoomImage = "/images/blue-lotus-treatment-room.jpg";
   const footMassageImage = "/images/blue-lotus-foot-massage.jpg";
@@ -265,6 +271,26 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Testimonials ── */}
+      <section className="bg-background">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <div className="text-center">
+            <h2 className="text-3xl font-semibold text-foreground">
+              {dict.testimonials.heading}
+            </h2>
+          </div>
+          <div className="mt-12">
+            <ReviewsGrid
+              reviews={reviews}
+              limit={3}
+              readMoreText={dict.testimonials.readMore}
+              readLessText={dict.testimonials.readLess}
+              sourceText={dict.testimonials.source}
+            />
           </div>
         </div>
       </section>

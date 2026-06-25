@@ -3,13 +3,19 @@ import type { Dictionary } from "@/i18n/types";
 import { type Locale, locales, defaultLocale } from "@/i18n/locales";
 import { durations, services, site } from "@/lib/site";
 
-export type PublicRoute = "" | "/services" | "/our-story" | "/contact";
+export type PublicRoute =
+  | ""
+  | "/services"
+  | "/our-story"
+  | "/contact"
+  | "/reviews";
 
 export const publicRoutes: PublicRoute[] = [
   "",
   "/services",
   "/our-story",
   "/contact",
+  "/reviews",
 ];
 
 export const siteOrigin = site.url.replace(/\/+$/, "");
@@ -138,6 +144,7 @@ export function localBusinessJsonLd(locale: Locale, dict: Dictionary) {
     ],
     sameAs: [
       site.socials.facebook,
+      site.socials.line,
       site.socials.instagram,
       site.socials.tiktok,
     ],

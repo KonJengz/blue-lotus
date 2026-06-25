@@ -22,12 +22,18 @@ const zh: Dictionary = {
       description:
         "Blue Lotus 的位置、地图与联系方式，邻近 BTS 空讪站（Soi Somdet Chao Phraya 17）。电话 081-632-6244。",
     },
+    reviews: {
+      title: "顾客评价 — Blue Lotus",
+      description:
+        "阅读曾体验过 Blue Lotus 传统泰式按摩的顾客评价与反馈。",
+    },
   },
   nav: {
     home: "首页",
     story: "品牌故事",
     services: "服务项目",
     contact: "联系我们",
+    reviews: "顾客评价",
     bookNow: "立即预约",
     openMenu: "打开菜单",
     closeMenu: "关闭菜单",
@@ -82,6 +88,12 @@ const zh: Dictionary = {
     heading: "热门项目",
     subtitle: "选择适合您的按摩，提供 60 / 90 / 120 分钟选项。",
     viewAll: "查看完整项目与价目",
+  },
+  testimonials: {
+    heading: "顾客评价",
+    readMore: "阅读更多",
+    readLess: "收起",
+    source: "来自 Google Maps 的评价",
   },
   story: {
     heading: "品牌故事",

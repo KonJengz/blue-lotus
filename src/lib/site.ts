@@ -18,6 +18,7 @@ export const site = {
     "https://www.google.com/maps?q=Soi%20Somdet%20Chao%20Phraya%2017%2C%20Khlong%20San%2C%20Bangkok&output=embed",
   socials: {
     facebook: "https://www.facebook.com/bluelotus.th/",
+    line: "https://lin.ee/W5rANNt",
     instagram: "https://www.instagram.com/bluelotusspa.th/",
     tiktok: "https://www.tiktok.com/@bluelotus512",
   },

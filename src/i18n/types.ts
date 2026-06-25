@@ -15,12 +15,14 @@ export interface Dictionary {
     story: PageMeta;
     services: PageMeta;
     contact: PageMeta;
+    reviews: PageMeta;
   };
   nav: {
     home: string;
     story: string;
     services: string;
     contact: string;
+    reviews: string;
     bookNow: string;
     openMenu: string;
     closeMenu: string;
@@ -48,6 +50,12 @@ export interface Dictionary {
     heading: string;
     subtitle: string;
     viewAll: string;
+  };
+  testimonials: {
+    heading: string;
+    readMore: string;
+    readLess: string;
+    source: string;
   };
   story: {
     heading: string;

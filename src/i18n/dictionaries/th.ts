@@ -22,12 +22,18 @@ const th: Dictionary = {
       description:
         "ที่ตั้ง แผนที่ และช่องทางติดต่อบลูโลตัส ใกล้ BTS คลองสาน (ซอยสมเด็จเจ้าพระยา 17) โทร 081-632-6244",
     },
+    reviews: {
+      title: "รีวิวจากลูกค้า — Blue Lotus",
+      description:
+        "อ่านความประทับใจและรีวิวจากลูกค้าที่มาใช้บริการนวดแผนไทยและนวดบำบัดที่ บลูโลตัส",
+    },
   },
   nav: {
     home: "หน้าแรก",
     story: "ประวัติความเป็นมา",
     services: "บริการของเรา",
     contact: "ติดต่อเรา",
+    reviews: "รีวิวจากลูกค้า",
     bookNow: "จองคิว",
     openMenu: "เปิดเมนู",
     closeMenu: "ปิดเมนู",
@@ -82,6 +88,12 @@ const th: Dictionary = {
     heading: "บริการยอดนิยม",
     subtitle: "เลือกการนวดที่เหมาะกับคุณ พร้อมตัวเลือกเวลา 60 / 90 / 120 นาที",
     viewAll: "ดูรายการและราคาทั้งหมด",
+  },
+  testimonials: {
+    heading: "เสียงจากลูกค้าของเรา",
+    readMore: "อ่านเพิ่มเติม",
+    readLess: "แสดงน้อยลง",
+    source: "รีวิวจาก Google Maps",
   },
   story: {
     heading: "ประวัติความเป็นมา",
@@ -140,7 +152,7 @@ const th: Dictionary = {
     hoursLabel: "เวลาทำการ",
     locationLabel: "ที่ตั้ง",
     phoneLabel: "โทรศัพท์",
-    contactPerson: "คุณกฤษน์ (Khun Krit)",
+    contactPerson: "คุณกฤษ",
     followLabel: "ติดตามเรา",
     mapCta: "เปิดใน Google Maps",
     callCta: "โทรเลย",
