@@ -94,6 +94,7 @@ const en: Dictionary = {
     readMore: "Read more",
     readLess: "Show less",
     source: "Review from Google Maps",
+    viewAll: "View all reviews",
   },
   story: {
     heading: "Our Story",

@@ -292,6 +292,15 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
               sourceText={dict.testimonials.source}
             />
           </div>
+          <div className="mt-10 flex justify-center">
+            <Link
+              href={`${base}/reviews/`}
+              className="inline-flex items-center rounded-md border border-border bg-surface px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-surface-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            >
+              {dict.testimonials.viewAll}
+              <ArrowRight className="ml-1.5 h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
 

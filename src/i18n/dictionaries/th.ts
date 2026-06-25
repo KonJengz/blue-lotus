@@ -94,6 +94,7 @@ const th: Dictionary = {
     readMore: "อ่านเพิ่มเติม",
     readLess: "แสดงน้อยลง",
     source: "รีวิวจาก Google Maps",
+    viewAll: "ดูรีวิวทั้งหมด",
   },
   story: {
     heading: "ประวัติความเป็นมา",

@@ -56,6 +56,7 @@ export interface Dictionary {
     readMore: string;
     readLess: string;
     source: string;
+    viewAll: string;
   };
   story: {
     heading: string;

@@ -94,6 +94,7 @@ const zh: Dictionary = {
     readMore: "阅读更多",
     readLess: "收起",
     source: "来自 Google Maps 的评价",
+    viewAll: "查看全部评价",
   },
   story: {
     heading: "品牌故事",
