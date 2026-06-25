@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Logo } from "@/components/Logo";
 import { SocialLinks } from "@/components/SocialLinks";
 import { site } from "@/lib/site";
@@ -19,7 +20,7 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
 
   return (
     <footer className="mt-auto border-t border-border bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 pt-12 pb-20 lg:pb-30 sm:px-6 md:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 pt-12 pb-20 lg:pb-30 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
         {/* Brand */}
         <div className="space-y-4">
           <Logo />
@@ -82,6 +83,29 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
               · {contact.contactPerson}
             </li>
           </ul>
+        </div>
+
+        {/* Map */}
+        <div className="space-y-3">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-foreground">
+            {lang === "th" ? "แผนที่" : lang === "zh" ? "地图" : "Map"}
+          </h2>
+          <a
+            href={site.mapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block overflow-hidden rounded-md border border-border transition-colors hover:border-accent"
+          >
+            <div className="relative aspect-square w-full">
+              <Image
+                src="/images/map.png"
+                alt="Blue Lotus Location Map"
+                fill
+                className="object-cover opacity-90 transition-opacity group-hover:opacity-100"
+                sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+              />
+            </div>
+          </a>
         </div>
       </div>
 
