@@ -13,9 +13,9 @@ export const site = {
   hours: { open: "10:00", close: "21:00" },
   // Blue Lotus location shared by the shop.
   mapUrl: "https://maps.app.goo.gl/366jYURr3EuqDQ539",
-  // Keyless Google Maps embed pinned to the exact shop coordinates.
+  // Official Google Maps embed for the Blue Lotus place listing.
   mapEmbedUrl:
-    "https://www.google.com/maps?q=13.7324118%2C100.5086066&z=19&output=embed",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d968.9423279107639!2d100.50796152855415!3d13.732411799162596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2990079a9c689%3A0xcd6a8ba8da4ba0dc!2sBlue%20Lotus!5e0!3m2!1sth!2sus!4v1782855371565!5m2!1sth!2sus",
   socials: {
     facebook: "https://www.facebook.com/bluelotus.th/",
     line: "https://lin.ee/W5rANNt",

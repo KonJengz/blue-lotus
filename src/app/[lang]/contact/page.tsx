@@ -121,8 +121,9 @@ export default async function ContactPage({
             <iframe
               title={c.locationLabel}
               src={site.mapEmbedUrl}
+              allowFullScreen
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+              referrerPolicy="strict-origin-when-cross-origin"
               className="h-80 w-full lg:h-full lg:min-h-112"
             />
           </div>
