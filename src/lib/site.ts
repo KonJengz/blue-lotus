@@ -11,11 +11,11 @@ export const site = {
   phone: "081-632-6244",
   phoneHref: "tel:+66816326244",
   hours: { open: "10:00", close: "21:00" },
-  // BTS Khlong San (Soi Somdet Chao Phraya 17)
-  mapUrl: "https://maps.app.goo.gl/x1ptbgRXhFzidjo1A",
-  // Keyless Google Maps embed for the area.
+  // Blue Lotus location shared by the shop.
+  mapUrl: "https://maps.app.goo.gl/366jYURr3EuqDQ539",
+  // Keyless Google Maps embed pinned to the exact shop coordinates.
   mapEmbedUrl:
-    "https://www.google.com/maps?q=Soi%20Somdet%20Chao%20Phraya%2017%2C%20Khlong%20San%2C%20Bangkok&output=embed",
+    "https://www.google.com/maps?q=13.7324118%2C100.5086066&z=19&output=embed",
   socials: {
     facebook: "https://www.facebook.com/bluelotus.th/",
     line: "https://lin.ee/W5rANNt",
