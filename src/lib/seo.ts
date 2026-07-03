@@ -48,9 +48,9 @@ function ogLocale(locale: Locale) {
 
 function imageAlt(locale: Locale) {
   const map: Record<Locale, string> = {
-    th: "โลโก้ร้านบลูโลตัส",
-    en: "Blue Lotus Logo",
-    zh: "Blue Lotus 标志",
+    th: "ห้องนวดไทยภายในร้านบลูโลตัส",
+    en: "Thai massage treatment room at Blue Lotus",
+    zh: "Blue Lotus 店内的泰式按摩房",
   };
   return map[locale];
 }
@@ -67,7 +67,7 @@ export function createPageMetadata({
   description: string;
 }): Metadata {
   const url = absoluteUrl(localizedPath(locale, route));
-  const image = absoluteUrl("/images/blue-lotus-logo-icon-mask.png");
+  const image = absoluteUrl("/images/blue-lotus-treatment-room.jpg");
 
   return {
     title,
@@ -89,6 +89,9 @@ export function createPageMetadata({
       images: [
         {
           url: image,
+          width: 2400,
+          height: 1600,
+          type: "image/jpeg",
           alt: imageAlt(locale),
         },
       ],

@@ -1,18 +1,25 @@
 import type { Metadata } from "next";
 import { RootLocaleRedirect } from "@/components/RootLocaleRedirect";
+import { getDictionary } from "@/i18n/dictionaries";
 import { defaultLocale } from "@/i18n/locales";
-import { absoluteUrl, languageAlternates, localizedPath } from "@/lib/seo";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: absoluteUrl(localizedPath(defaultLocale)),
-    languages: languageAlternates(""),
-  },
-  robots: {
-    index: false,
-    follow: true,
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const dict = await getDictionary(defaultLocale);
+
+  return {
+    ...createPageMetadata({
+      locale: defaultLocale,
+      route: "",
+      title: dict.meta.home.title,
+      description: dict.meta.home.description,
+    }),
+    robots: {
+      index: false,
+      follow: true,
+    },
+  };
+}
 
 /**
  * Static export can't use middleware, so "/" redirects to the default locale on
