@@ -27,6 +27,11 @@ const en: Dictionary = {
       description:
         "Read testimonials and reviews from our guests who experienced traditional Thai massage at Blue Lotus.",
     },
+    faq: {
+      title: "FAQ — Blue Lotus",
+      description:
+        "Frequently asked questions about Blue Lotus Thai therapeutic massage: booking, opening hours, location, prices, payment and safety advice.",
+    },
   },
   nav: {
     home: "Home",
@@ -34,6 +39,7 @@ const en: Dictionary = {
     services: "Services",
     contact: "Contact",
     reviews: "Reviews",
+    faq: "FAQ",
     bookNow: "Book Now",
     openMenu: "Open menu",
     closeMenu: "Close menu",
@@ -88,6 +94,61 @@ const en: Dictionary = {
     heading: "Popular treatments",
     subtitle: "Choose the massage that suits you, with 60 / 90 / 120-minute options.",
     viewAll: "See full menu & prices",
+  },
+  faq: {
+    heading: "Frequently Asked Questions",
+    subtitle:
+      "Answers to the questions our guests ask most. If there's anything else, feel free to contact us.",
+    items: [
+      {
+        question: "Do I need to book in advance, or can I just walk in?",
+        answer:
+          "Both walk-ins and advance bookings are welcome. To be sure a slot is available, we recommend calling ahead at 081-632-6244 (Khun Krit).",
+      },
+      {
+        question: "What are your opening days and hours?",
+        answer: "We are open every day from 10:00 to 21:00 (10:00 AM – 9:00 PM).",
+      },
+      {
+        question: "Where are you located and how do I get there?",
+        answer:
+          "Blue Lotus is near BTS Khlong San, on Soi Somdet Chao Phraya 17. You can find directions via Google Maps on our Contact page.",
+      },
+      {
+        question: "What services do you offer and how much do they cost?",
+        answer:
+          "We offer Thai massage, foot massage, head/neck/shoulder massage, herbal compress massage and oil massage, in 60 / 90 / 120-minute sessions. Prices start from 300 THB — see the full price list on our Services page.",
+      },
+      {
+        question: "Is there parking available?",
+        answer: "Yes, parking is available for customers.",
+      },
+      {
+        question: "Do you have male therapists?",
+        answer:
+          "Yes, male therapists are available. If you'd prefer a therapist of a specific gender, please let us know when booking at 081-632-6244.",
+      },
+      {
+        question: "What should I tell the therapist before my massage?",
+        answer:
+          "If you are pregnant, have an acute injury, a fever, a major medical condition, or have had recent surgery, please tell our staff or consult a doctor before your session, so we can care for you safely.",
+      },
+      {
+        question: "How should I prepare before coming for a massage?",
+        answer:
+          "Wear comfortable clothing — nothing special is required. We suggest arriving a little before your appointment and letting the therapist know about any aches or areas you'd like them to focus on.",
+      },
+      {
+        question: "Do you welcome international guests or other languages?",
+        answer:
+          "Our website is available in Thai, English and Chinese. International guests are welcome to contact us or book ahead by phone or social media.",
+      },
+      {
+        question: "What payment methods do you accept?",
+        answer:
+          "Please confirm the available payment options directly with the shop by phone at 081-632-6244 before your visit.",
+      },
+    ],
   },
   testimonials: {
     heading: "What our guests say",

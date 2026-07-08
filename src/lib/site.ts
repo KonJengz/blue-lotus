@@ -11,6 +11,8 @@ export const site = {
   phone: "081-632-6244",
   phoneHref: "tel:+66816326244",
   hours: { open: "10:00", close: "21:00" },
+  // Precise place coordinates (from the Google Maps place marker: !3d=lat, !4d=lng).
+  geo: { lat: 13.7324118, lng: 100.5086066 },
   // Blue Lotus location shared by the shop.
   mapUrl: "https://maps.app.goo.gl/366jYURr3EuqDQ539",
   // Official Google Maps embed for the Blue Lotus place listing.

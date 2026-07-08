@@ -5,7 +5,12 @@ import { Clock, MapPin, Phone, ShieldAlert } from "lucide-react";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale } from "@/i18n/locales";
 import { services, durations, site } from "@/lib/site";
-import { createPageMetadata } from "@/lib/seo";
+import {
+  breadcrumbJsonLd,
+  createPageMetadata,
+  servicesJsonLd,
+} from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 
 export async function generateMetadata({
   params,
@@ -35,6 +40,14 @@ export default async function ServicesPage({
 
   return (
     <div>
+      <JsonLd data={servicesJsonLd(lang, dict)} />
+      <JsonLd
+        data={breadcrumbJsonLd(lang, [
+          { name: dict.nav.home, route: "" },
+          { name: dict.nav.services, route: "/services" },
+        ])}
+      />
+
       {/* Header */}
       <header className="border-b border-border bg-surface-muted">
         <div className="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6">

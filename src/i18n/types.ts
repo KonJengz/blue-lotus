@@ -16,6 +16,7 @@ export interface Dictionary {
     services: PageMeta;
     contact: PageMeta;
     reviews: PageMeta;
+    faq: PageMeta;
   };
   nav: {
     home: string;
@@ -23,6 +24,7 @@ export interface Dictionary {
     services: string;
     contact: string;
     reviews: string;
+    faq: string;
     bookNow: string;
     openMenu: string;
     closeMenu: string;
@@ -50,6 +52,11 @@ export interface Dictionary {
     heading: string;
     subtitle: string;
     viewAll: string;
+  };
+  faq: {
+    heading: string;
+    subtitle: string;
+    items: { question: string; answer: string }[];
   };
   testimonials: {
     heading: string;

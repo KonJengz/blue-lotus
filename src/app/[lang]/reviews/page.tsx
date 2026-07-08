@@ -2,9 +2,14 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale } from "@/i18n/locales";
-import { createPageMetadata } from "@/lib/seo";
+import {
+  breadcrumbJsonLd,
+  createPageMetadata,
+  localBusinessJsonLd,
+} from "@/lib/seo";
 import { allReviews } from "@/lib/reviews";
 import { ReviewsGrid } from "@/components/ReviewsGrid";
+import { JsonLd } from "@/components/JsonLd";
 
 export async function generateMetadata({
   params,
@@ -32,6 +37,15 @@ export default async function ReviewsPage({ params }: PageProps<"/[lang]">) {
 
   return (
     <>
+      {/* Business with aggregate rating + individual reviews (all shown here). */}
+      <JsonLd data={localBusinessJsonLd(lang, dict, { includeReviews: true })} />
+      <JsonLd
+        data={breadcrumbJsonLd(lang, [
+          { name: dict.nav.home, route: "" },
+          { name: dict.nav.reviews, route: "/reviews" },
+        ])}
+      />
+
       <div className="bg-surface-muted px-6 py-16 text-center sm:py-24">
         <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">
           {dict.nav.reviews}
