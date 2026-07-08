@@ -81,7 +81,7 @@ export function ReviewsGrid({
   }, [visibleReviews]);
 
   return (
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start">
+    <div className="columns-1 gap-6 md:columns-2 lg:columns-3">
       {visibleReviews.map((testimonial, i) => {
         const reviewId = getReviewId(testimonial, i);
         const isExpanded = expandedReviews[reviewId] ?? false;
@@ -89,7 +89,7 @@ export function ReviewsGrid({
         return (
           <div
             key={reviewId}
-            className="flex flex-col rounded-lg border border-border bg-surface p-8 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.1)] transition-opacity animate-in fade-in duration-500"
+            className="mb-6 flex break-inside-avoid flex-col rounded-lg border border-border bg-surface p-8 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.1)] transition-opacity animate-in fade-in duration-500"
           >
             <div className="flex-1">
               <div className="flex gap-1 text-accent">
