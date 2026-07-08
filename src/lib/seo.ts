@@ -140,6 +140,7 @@ export function localBusinessJsonLd(
       streetAddress: "Soi Somdet Chao Phraya 17",
       addressLocality: "Khlong San",
       addressRegion: "Bangkok",
+      postalCode: "10600",
       addressCountry: "TH",
     },
     geo: {

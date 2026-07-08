@@ -89,7 +89,7 @@ export function ReviewsGrid({
         return (
           <div
             key={reviewId}
-            className="flex flex-col rounded-lg border border-border bg-surface p-8 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.1)] h-full transition-opacity animate-in fade-in duration-500"
+            className="flex flex-col rounded-lg border border-border bg-surface p-8 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.1)] transition-opacity animate-in fade-in duration-500"
           >
             <div className="flex-1">
               <div className="flex gap-1 text-accent">
