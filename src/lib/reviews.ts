@@ -215,4 +215,85 @@ export const allReviews = [
       zh: "服务很好，技师手艺精湛，氛围舒适，而且有停车场。",
     },
   },
+  {
+    name: "Pang SPC",
+    rating: 5,
+    text: {
+      th: "มาลองนวดครั้งแรก เห็นรีวิวดีแล้วก็ใกล้บ้าน ประทับใจเลย บรรยากาศเงียบ แอร์เย็นฉ่ำ มาช่วงบ่ายๆ วันธรรมดาไม่ค่อยมีคน หมอพิมนวดดีมากกกก โดนทุกจุด สบายตัวเลย💯 ชวนคุยด้วยน่ารักกกก ไว้มีโอกาสมาใช้บริการอีกค่า",
+      en: "Came for the first time after seeing great reviews, and it's close to home. Very impressed! Quiet atmosphere, nice and cool air conditioning. Came on a weekday afternoon so it wasn't crowded. Therapist Pim was amazing, hit every pressure point perfectly, so relaxing 💯 She was also lovely to chat with. I'll definitely be back!",
+      zh: "第一次来尝试，看到评价很好又离家近。非常满意！环境安静，空调凉爽舒适。工作日下午来人不多。按摩师Pim手法非常好，每个穴位都按到位，特别放松💯 人也很亲切好聊。有机会一定会再来！",
+    },
+  },
+  {
+    name: "Mahat Seriputra",
+    rating: 5,
+    text: {
+      th: "วันนี้มานวดกับหมอภัค หมอพิมพ์มาช่วยแก้อาการดีขึ้น สถานที่สะอาด บรรยากาศดี มารอบ2 แล้ว",
+      en: "Had a massage with Therapist Phak today, and Therapist Pim also helped treat my symptoms. Feeling much better. The place is clean with a great atmosphere. This is my second visit already.",
+      zh: "今天找Phak师傅按摩，Pim师傅也帮忙治疗了我的症状，感觉好多了。环境干净，氛围很好。这已经是我第二次来了。",
+    },
+  },
+  {
+    name: "Pundaree S.",
+    rating: 5,
+    text: {
+      th: "สถานที่สะอาดสะอ้าน มีการต้อนรับอย่างดี น้ำหนักมือในการนวดพอดีมากๆนวดเสร็จตัวโล่งหายเมื่อยไม่เจ็บ น้ำขิงอร่อย ราคาน่ารัก ให้คำแนะนำดีมากๆเลยค่ะ",
+      en: "The place is spotlessly clean with a wonderful welcome. The massage pressure was just perfect—felt light and refreshed afterwards with no pain. The ginger tea was delicious, prices are reasonable, and they gave excellent recommendations.",
+      zh: "环境非常干净整洁，接待很周到。按摩力度恰到好处，做完之后全身轻松，不疼不痛。姜茶很好喝，价格也很实惠，还给了很好的建议。",
+    },
+  },
+  {
+    name: "perawat cheamsirikarn",
+    rating: 5,
+    text: {
+      th: "หมอนวดดีครับ ชื่อหมอภัค เป็นการใช้บริการครั้งที่ 2 แล้ว โดยเฉพาะมีโปรโมชั่นคุ้มค่ามาก มาเราไม่ผิดหวังครับ",
+      en: "Great therapist named Phak. This is my second visit. The promotions are especially great value. You won't be disappointed coming here.",
+      zh: "按摩师Phak很棒。这是我第二次来了。尤其是促销活动非常超值。来这里绝对不会失望。",
+    },
+  },
+  {
+    name: "Eduardo Carrasco Marnich",
+    rating: 5,
+    text: {
+      en: "A great and comfortable place to get relaxed. Staffs and therapists are incredible kind. I totally recommend this place just a few minutes from Iconsiam and Riverside.",
+      th: "สถานที่ที่ยอดเยี่ยมและสะดวกสบายสำหรับการพักผ่อน พนักงานและนักบำบัดใจดีมากๆ แนะนำเลยครับ อยู่ใกล้ไอคอนสยามและริเวอร์ไซด์แค่ไม่กี่นาที",
+      zh: "一个放松身心的绝佳舒适之地。工作人员和理疗师都非常友善。强烈推荐，距离ICONSIAM和河滨仅几分钟路程。",
+    },
+  },
+  {
+    name: "Nuchanart Punnahitanonda",
+    rating: 5,
+    text: {
+      th: "มานวดโดยมีอาการตึงคอ บ่า มานานและเห็นเพจร้านนี้ขึ้นมาหน้าเฟสเลยอยากเข้ามานวดและหลังจากการนวดผลที่ได้คืออาการที่เป็นมาโล่งขึ้นและที่สำคัญได้รับการรักษาจากท่านอาจารย์ช่วยปรับแก้อาการให้ บอกได้คำเดียวเลยค่ะว่าดีมากๆ",
+      en: "I came with chronic neck and shoulder tension after seeing the shop's page on Facebook. After the massage, my symptoms felt so much better, and most importantly, the master therapist helped adjust and treat my condition. I can only say one thing—absolutely wonderful!",
+      zh: "我因为长期颈肩僵硬，在Facebook上看到这家店的页面就想来试试。按摩之后症状轻松了很多，最重要的是大师帮我调理了身体状况。只能说一个字——非常棒！",
+    },
+  },
+  {
+    name: "Natthaya Thaidecha",
+    rating: 5,
+    text: {
+      en: "An amazing massage place near Iconsiam. The staffs are very helpful, take so much care and professional. Definitely coming back",
+      th: "ร้านนวดที่ยอดเยี่ยมใกล้ไอคอนสยาม พนักงานคอยช่วยเหลือ ดูแลเอาใจใส่ และเป็นมืออาชีพมาก จะกลับมาอีกแน่นอนค่ะ",
+      zh: "ICONSIAM附近一家很棒的按摩店。工作人员非常热心、细心且专业。一定会再来的。",
+    },
+  },
+  {
+    name: "mr.wuttipat srimoung",
+    rating: 5,
+    text: {
+      th: "หมอนางนวด หมอวัตฒ์คุณป้ามานวด หมอวัตฒ์ นวด ป้าปวดเอว ปวดหลังมานาน อาการดีขึ้นนอนหงายได้ ไม่ปวดหลัง",
+      en: "My aunt came for a massage with Doctor Wat. She had been suffering from waist and back pain for a long time. After the treatment, her condition improved—she can now lie on her back without pain.",
+      zh: "我阿姨来找Wat师傅按摩。她长期腰背疼痛。治疗后状况有所改善，现在可以仰卧不疼了。",
+    },
+  },
+  {
+    name: "81 Ajisai",
+    rating: 5,
+    text: {
+      en: "Very cozy & nice salon ❤️ Dr Wat & all staff are wonderful 👍 Recommend this salon",
+      th: "ร้านอบอุ่นและน่ารักมาก ❤️ อาจารย์วัตรและพนักงานทุกคนยอดเยี่ยม 👍 แนะนำร้านนี้เลย",
+      zh: "非常温馨舒适的按摩店 ❤️ Wat师傅和所有工作人员都很棒 👍 推荐这家店",
+    },
+  },
 ];
